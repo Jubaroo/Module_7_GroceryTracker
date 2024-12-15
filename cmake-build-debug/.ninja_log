@@ -1,0 +1,9 @@
+# ninja log v6
+2	380	7560017527035558	CMakeFiles/Module_7.dir/main.cpp.obj	d305c6e5283c51ef
+3	465	7560018237307611	CMakeFiles/Module_7.dir/GroceryTracker.cpp.obj	97a76fe6d5c2d897
+465	564	7560018241927941	Module_7.exe	adf526823d8773df
+3	402	7560022423299634	CMakeFiles/Module_7.dir/main.cpp.obj	d305c6e5283c51ef
+402	498	7560022427293130	Module_7.exe	adf526823d8773df
+3	393	7560027856061300	CMakeFiles/Module_7.dir/main.cpp.obj	d305c6e5283c51ef
+7	468	7560027856101252	CMakeFiles/Module_7.dir/GroceryTracker.cpp.obj	97a76fe6d5c2d897
+468	565	7560027860712045	Module_7.exe	adf526823d8773df
