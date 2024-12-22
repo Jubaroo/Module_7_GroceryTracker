@@ -5,6 +5,7 @@ The Grocery Tracker is a C++ application designed to manage and analyze grocery 
 
 ## Key Features
 - **Data Loading:** Automatically loads grocery items and their frequencies from a designated input file.
+- **Case-Insensitive Search:** Users can search for an item’s frequency regardless of the capitalization of their input (e.g., `Apple`, `apple`, and `APPLE` will all match).
 - **Frequency Analysis:** Calculates and displays the frequency of each grocery item.
 - **Data Visualization:** Generates histograms for a graphical representation of item frequencies.
 - **Data Backup:** Provides functionality to back up current grocery data into a file.
@@ -20,11 +21,11 @@ The Grocery Tracker is a C++ application designed to manage and analyze grocery 
   - Implement a spell-check or similarity-checking feature (e.g., using Levenshtein distance or fuzzy string matching) to detect and correct minor misspellings in grocery item names. This would help group similar items together and improve the accuracy of frequency analysis.
   - Future enhancements could include data syncing with cloud storage or integration with mobile apps for real-time grocery tracking.
 - **UI Improvement:** Transitioning from a console-based interface to a graphical user interface (GUI) could make the application more accessible to non-technical users.
-- **Spell-Checking and Similarity Matching:** To improve the program’s usability, implementing a spell-checking mechanism or similarity-checking algorithm (e.g., Levenshtein distance) would allow the program to group similar or misspelled items correctly. This would enhance data accuracy and create a smoother user experience.
 
 ## Challenges and Resolutions
 - **Data Handling:** Managing data integrity while loading and processing from files was challenging. I utilized C++ STL containers like maps for efficient data management and error handling techniques to manage file read/write errors.
 - **Histogram Generation:** Creating a text-based histogram in the console was initially challenging but I managed to implement it by iterating over the frequency map and using loops to print asterisks corresponding to item counts.
+- **Case-Insensitive Search:** Ensuring that user searches for item frequencies were flexible and intuitive required implementing a case-insensitive comparison mechanism. This was achieved by normalizing both the input and stored data to lowercase for accurate matching.
 
 ## Transferable Skills
 - **Data Management:** Skills in handling and processing large datasets efficiently are transferable to any software development or data analysis role.
@@ -35,3 +36,7 @@ The Grocery Tracker is a C++ application designed to manage and analyze grocery 
 - **Modular Code Structure:** I organized the code into classes and separate functions for each functionality, which makes it easier to maintain and update.
 - **Comprehensive Documentation:** Each function and class is accompanied by detailed comments explaining the purpose and functionality, which aids in readability.
 - **Flexible Architecture:** The application is designed to be easily adaptable for additional features such as different data input sources or new ways of data visualization.
+
+## Future Improvements
+- **Spell-Checking and Similarity Matching:** To improve the program’s usability, implementing a spell-checking mechanism or similarity-checking algorithm (e.g., Levenshtein distance) would allow the program to group similar or misspelled items correctly. This would enhance data accuracy and create a smoother user experience.
+- **Enhanced User Feedback:** Adding suggestions for closely related or likely items when a search fails (e.g., did you mean `apple`?).

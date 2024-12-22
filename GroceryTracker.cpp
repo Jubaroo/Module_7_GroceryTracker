@@ -10,6 +10,7 @@
 #include "GroceryTracker.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -51,6 +52,18 @@ void GroceryTracker::LoadItemsFromFile(const string& inputFile) {
 }
 
 /**
+ * @brief Converts a string to lowercase.
+ *
+ * @param str The input string.
+ * @return string The lowercase version of the input string.
+ */
+string ToLowercase(const string& str) {
+    string lower = str;
+    ranges::transform(lower, lower.begin(), ::tolower);
+    return lower;
+}
+
+/**
  * @brief Retrieves the frequency of a specific grocery item.
  *
  * This function searches for the specified item in the frequency map and returns
@@ -60,11 +73,14 @@ void GroceryTracker::LoadItemsFromFile(const string& inputFile) {
  * @return int The frequency count of the specified item.
  */
 int GroceryTracker::GetItemFrequency(const string& item) const {
-    auto it = itemFrequency.find(item);
-    if (it != itemFrequency.end()) {
-        return it->second;
+    string lowerItem = ToLowercase(item); // Convert input to lowercase
+
+    for (const auto& pair : itemFrequency) {
+        if (ToLowercase(pair.first) == lowerItem) {
+            return pair.second; // Return frequency if names match
+        }
     }
-    return 0;
+    return 0; // Item not found
 }
 
 /**

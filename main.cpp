@@ -35,12 +35,11 @@ int main() {
              << "Enter your choice: ";
 
         cin >> choice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         // Validate input.
         if (cin.fail() || choice < 1 || choice > 4) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.clear(); // Clear the error flag on cin
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input in the buffer
             cout << "Invalid input. Please enter a number between 1 and 4.\n";
             continue;
         }
@@ -49,9 +48,14 @@ int main() {
             case 1: {  // Search for an item's frequency.
                 cout << "Enter item name to search frequency: ";
                 string item;
+                cin.ignore(); // Clear newline character from previous input
                 getline(cin, item);
-                int freq = tracker.GetItemFrequency(item);
-                cout << item << ": " << freq << endl;
+1
+                if (const int freq = tracker.GetItemFrequency(item); freq > 0) {
+                    cout << item << ": " << freq << endl;
+                } else {
+                    cout << item << " not found in the grocery list.\n";
+                }
                 break;
             }
             case 2: {  // Print all item frequencies.
@@ -66,10 +70,11 @@ int main() {
             }
             case 4:  // Exit the program.
                 cout << "Exiting program.\n";
-                break;
-            default:  // Should not occur due to validation.
-                cout << "Invalid option.\n";
-                break;
+            break;
+            default:
+                // This block is redundant due to input validation but left as a safeguard.
+                    cout << "Invalid option.\n";
+            break;
         }
     }
 
